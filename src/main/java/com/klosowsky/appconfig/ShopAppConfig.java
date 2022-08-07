@@ -7,7 +7,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @EnableWebMvc
-@ComponentScan(basePackages = "com.klosowsky.my_shop")
+@ComponentScan(basePackages = "com.klosowsky.controllers")
 @Configuration
 public class ShopAppConfig {
 

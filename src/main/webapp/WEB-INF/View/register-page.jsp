@@ -12,13 +12,13 @@
     <title>Title</title>
 </head>
 <body>
-<div align="center"><h1>Hello!</h1>
-    <%--@elvariable id="userInfoDTO" type=""--%>
+<%--<div align="center"><h1>Hello!</h1>
+    &lt;%&ndash;@elvariable id="userInfoDTO" type=""&ndash;%&gt;
     <form:form action="calculate" method="get" modelAttribute="userInfoDTO">
         <form:input path="userName"/>
         <form:input path="crushName"/>
-        <input type="submit" value="Calculate">
+        <input type="submit" value="Register">
     </form:form>
-</div>
+</div>--%>
 </body>
 </html>

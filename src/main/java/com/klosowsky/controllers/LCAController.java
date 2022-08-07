@@ -8,6 +8,6 @@ public class LCAController {
 
     @RequestMapping("/")
     public String showHomePage(){
-        return "home-page.jsp";
+        return "home-page";
     }
 }
