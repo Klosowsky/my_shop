@@ -17,7 +17,7 @@
 <h1>Registration succes!</h1>
 <h2>The details entered by you are:</h2>
 
-Name: ${registrationDTO.name} <br>
+Email: ${registrationDTO.communicationDTO.email} <br>
 Username: ${registrationDTO.username}<br>
 Password: ${registrationDTO.password}<br>
 Country: ${registrationDTO.country}<br>

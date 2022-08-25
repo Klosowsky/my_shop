@@ -1,6 +1,8 @@
 package com.klosowsky.controllers;
 
 
+import com.klosowsky.api.CommunicationDTO;
+import com.klosowsky.api.Phone;
 import com.klosowsky.api.RegistrationDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -17,12 +19,21 @@ public class RegisterController {
     @RequestMapping("/register")
     public String register(@ModelAttribute("registrationDTO")RegistrationDTO registrationDTO){
 
+        Phone phone = new Phone();
+        phone.setCountryCode("48");
+        phone.setPhoneNumber("123456789");
+        CommunicationDTO communicationDTO = new CommunicationDTO();
+        communicationDTO.setPhone(phone);
+
+        registrationDTO.setCommunicationDTO(communicationDTO);
         return "register-page";
     }
 
     @RequestMapping("/process-register")
     public String registerSucces(@Valid @ModelAttribute("registrationDTO")RegistrationDTO registrationDTO, BindingResult result){
         System.out.println("Inside process-register");
+
+
 
         if(result.hasErrors()){
             List<ObjectError> errorList = result.getAllErrors();

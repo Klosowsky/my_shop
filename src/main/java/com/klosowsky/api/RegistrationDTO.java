@@ -10,10 +10,18 @@ public class RegistrationDTO {
 
     private char[] password;
 
-    private String email;
     private String country;
     private String[] hobbies;
     private String gender;
+    private CommunicationDTO communicationDTO;
+
+    public CommunicationDTO getCommunicationDTO() {
+        return communicationDTO;
+    }
+
+    public void setCommunicationDTO(CommunicationDTO communicationDTO) {
+        this.communicationDTO = communicationDTO;
+    }
 
     private boolean sendingInformationAgreement;
 
@@ -25,14 +33,6 @@ public class RegistrationDTO {
         this.sendingInformationAgreement = sendingInformationAgreement;
     }
 
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public String getUsername() {
         return username;

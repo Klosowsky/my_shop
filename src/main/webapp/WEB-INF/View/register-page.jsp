@@ -47,8 +47,8 @@
     password: <form:password path="password"/>
     </p>
     <p>
-        E-mail: <form:input path="email" id="email"/>
-        <form:errors path="email" cssClass="error"/>
+        E-mail: <form:input path="communicationDTO.email" id="email"/>
+        <form:errors path="communicationDTO.email" cssClass="error"/>
     </p>
     <p>
     <label>Country: </label>
@@ -74,6 +74,9 @@
     </p>
     <p>
     <form:checkbox path="sendingInformationAgreement"/> I agree to sending messages to my e-mail
+    </p>
+    <p>
+        Phone: <form:input path="communicationDTO.phone"/>
     </p>
     <input type="submit" value="Register"/>
     
