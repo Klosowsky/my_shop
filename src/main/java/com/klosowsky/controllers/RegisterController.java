@@ -30,17 +30,14 @@ public class RegisterController {
     }
 
     @RequestMapping("/process-register")
-    public String registerSucces(@Valid @ModelAttribute("registrationDTO")RegistrationDTO registrationDTO, BindingResult result){
+    public String processRegister(@Valid @ModelAttribute("registrationDTO")RegistrationDTO registrationDTO, BindingResult result){
         System.out.println("Inside process-register");
-
-
 
         if(result.hasErrors()){
             List<ObjectError> errorList = result.getAllErrors();
             for(ObjectError error : errorList){
                 System.out.println(error);
             }
-            //System.out.println("username error...");
             return "register-page";
         }
         return "register-succes-page";
