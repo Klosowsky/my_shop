@@ -2,10 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Georgia';
-}
-form{
-
+    font-family: 'monospace';
 }
 
 body{
@@ -14,14 +11,14 @@ body{
     justify-content: center;
     align-items: center;
     padding: 10px;
-    background:linear-gradient(greenyellow,aqua);
+    background:linear-gradient(45deg,greenyellow,aqua);
 }
 .title{
     text-align: center;
 
 }
 .container{
-    max-width: 300px;
+    max-width: 360px;
     width:100%;
     background: lightyellow;
     padding: 25px 30px;
@@ -30,17 +27,56 @@ body{
 .details{
     padding-top: 9px;
     padding-bottom: 4px;
+    font-size: 18px;
 }
 .my_input input[type=text]{
     width: 100%;
-    height: 20px;
+    height: 30px;
+
+    font-size: medium;
 }
 .my_input input[type=password]{
     width: 100%;
-    height: 20px;
+    height: 30px;
+
+    font-size: medium;
 }
+
+.my_input select{
+    height: 30px;
+    font-size: 16px;
+}
+.my_input .phoneCode{
+    width:11%;
+    display: inline-block;
+
+}
+.my_input .phoneNumber {
+    display: inline-block;
+    width:83%;
+    float:right;
+}
+.my_submit{
+    padding-top: 10px;
+    text-align: center;
+}
+.my_submit input[type=submit]{
+    padding: 6px 10px;
+    font-size: 19px;
+}
+.my_radio{
+    padding-right: 5px;
+    display: inline;
+    font-size: 18px;
+}
+
+.agreements{
+    padding-top: 3px;
+    padding-bottom: 4px;
+    font-size: 15px;
+}
+
 .error{
-    background-color: aqua;
     color:red;
     position: fixed;
     text-align: left;

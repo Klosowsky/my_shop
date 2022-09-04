@@ -12,79 +12,39 @@
     <title>Title</title>
     <script>
         function validateForm(){
-            var userNameCheck = document.getElementById('username').value;
-            if(userNameCheck.length<2){
-                alert(" * Username must have at least 3 chars * ");
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            var passwordRepeat = document.getElementById('repeatPassword').value;
+            var email = document.getElementById('email').value;
+            var errors =[];
+            if(username.length<3||username.length>15){
+                errors.push(" * Username should be 3 to 15 characters long * ")
+            }
+            if(password.length<8||password.length>15){
+                errors.push(" * Password should be 8 to 15 characters long * ")
+            }
+            if(password!==passwordRepeat){
+                errors.push(" * Passwords are difrent * ")
+            }
+            if(!(email.includes('@')&&email.includes('.'))){
+                errors.push(" * Invalid e-mail * ")
+            }
+
+
+            if(errors.length!==0){
+                alert(errors.join("\n"));
                 return false;
             }
             else{
                 return true;
             }
+
         }
 
     </script>
-    <%--<style type="text/css">
-        .error{
-            color:red;
-            position: fixed;
-            text-align: left;
-            margin-left: 20px;
-        }
-
-
-    </style>--%>
     <link href="css/style-register.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<%--<div align="center"><h1>Hello!</h1>
-
-    &lt;%&ndash;@elvariable id="registrationDTO" type="com.klosowsky.api.RegistrationDTO"&ndash;%&gt;
-<form:form action="process-register" method="get" modelAttribute="registrationDTO" onsubmit="return validateForm()">
-
-    <p>
-    Username: <form:input path="username" id="username"/>
-    <form:errors path="username" cssClass="error"/>
-    </p>
-    <p>
-    password: <form:password path="password"/>
-    </p>
-    <p>
-        E-mail: <form:input path="communicationDTO.email" id="email"/>
-        <form:errors path="communicationDTO.email" cssClass="error"/>
-    </p>
-    <p>
-    <label>Country: </label>
-    <form:select path="country">
-        <form:option value="PL" label="Poland"/>
-        <form:option value="USA" label="United States"/>
-        <form:option value="UK" label="Great Britain"/>
-        <form:option value="RU" label="Russia"/>
-    </form:select>
-    </p>
-    <p>
-    <label>Hobbies: </label>
-    <form:checkbox path="hobbies" value="Football"/> Football
-    <form:checkbox path="hobbies" value="Gaming"/> Gaming
-    <form:checkbox path="hobbies" value="Programing"/> Programing
-    <form:checkbox path="hobbies" value="Motorization"/> Motorization
-    <form:checkbox path="hobbies" value="Books"/> Books
-    </p>
-    <p>
-    <label>Gender: </label>
-    <form:radiobutton path="gender" value="male"/> Male
-    <form:radiobutton path="gender" value="female"/> Female
-    </p>
-    <p>
-    <form:checkbox path="sendingInformationAgreement"/> I agree to sending messages to my e-mail
-    </p>
-    <p>
-        Phone: <form:input path="communicationDTO.phone"/>
-    </p>
-    <input type="submit" value="Register"/>
-    
-</form:form>
-</div>--%>
-
 <div class="container">
     <div class="title"><h1>Registration</h1></div>
 
@@ -98,7 +58,11 @@
 
         <div class="details">Password</div>
         <div class="my_input">
-            <form:password path="password"/>
+            <form:password path="password" id="password"/>
+        </div>
+        <div class="details">Confirm password</div>
+        <div class="my_input">
+            <form:password path="repeatPassword" id="repeatPassword"/>
         </div>
         <div class="details">E-mail</div>
         <div class="my_input">
@@ -106,27 +70,34 @@
             <form:errors path="communicationDTO.email" cssClass="error"/>
         </div>
         <div class="details">Phone</div>
-        <div class="my_input">
-            <form:input path="communicationDTO.phone"/>
-        </div>
+    <div class="my_input">
+        + <div class="phoneCode"><form:input path="communicationDTO.phone.countryCode"/></div>
+        <div class="phoneNumber"><form:input path="communicationDTO.phone.phoneNumber"/></div>
+    </div>
         <div class="details">Country</div>
         <div class="my_input">
-            <form:select path="country">
+            <form:select path="country" >
                 <form:option value="PL" label="Poland"/>
                 <form:option value="USA" label="United States"/>
                 <form:option value="UK" label="Great Britain"/>
                 <form:option value="RU" label="Russia"/>
+                <form:option value="OTH" label="Other"/>
             </form:select>
         </div>
         <div class="details">Gender</div>
         <div class="my_input">
-            <form:radiobutton path="gender" value="male"/> Male
-            <form:radiobutton path="gender" value="female"/> Female
+            <div class="my_radio"><form:radiobutton path="gender" value="male"/> Male</div>
+            <div class="my_radio"><form:radiobutton path="gender" value="female"/> Female</div>
+            <div class="my_radio"><form:radiobutton path="gender" value="other"/> Other</div>
         </div>
-        <div class="details">
+        <br>
+        <div class="agreements">
             <form:checkbox path="sendingInformationAgreement"/> I agree to sending messages to my e-mail
         </div>
-        <div class="my_input">
+        <div class="agreements">
+            <form:checkbox path="conditionsAgreement"/> I agree to the privacy policy and terms of use *
+        </div>
+        <div class="my_submit">
             <input type="submit" value="Register"/>
         </div>
     </form:form>

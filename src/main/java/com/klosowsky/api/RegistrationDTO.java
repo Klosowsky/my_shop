@@ -7,8 +7,8 @@ public class RegistrationDTO {
 
     @Size(min = 3,max = 15,message = " * username should have 3 to 15 chars *")
     private String username;
-
     private char[] password;
+    private char[] repeatPassword;
 
     private String country;
     private String[] hobbies;
@@ -24,6 +24,7 @@ public class RegistrationDTO {
     }
 
     private boolean sendingInformationAgreement;
+    private boolean conditionsAgreement;
 
     public boolean isSendingInformationAgreement() {
         return sendingInformationAgreement;
@@ -50,6 +51,14 @@ public class RegistrationDTO {
         this.password = password;
     }
 
+    public char[] getRepeatPassword() {
+        return repeatPassword;
+    }
+
+    public void setRepeatPassword(char[] repeatPassword) {
+        this.repeatPassword = repeatPassword;
+    }
+
     public String getCountry() {
         return country;
     }
@@ -73,4 +82,13 @@ public class RegistrationDTO {
     public void setGender(String gender) {
         this.gender = gender;
     }
+
+    public boolean isConditionsAgreement() {
+        return conditionsAgreement;
+    }
+
+    public void setConditionsAgreement(boolean conditionsAgreement) {
+        this.conditionsAgreement = conditionsAgreement;
+    }
 }
+
